@@ -9,6 +9,7 @@ interface ButtonProps extends ButtonBaseProps {
   colorVariant?: ColorVariant;
   variant?: Variant;
   size?: ButtonSize;
+  href?: string;
 }
 export default function Button({
   styleSheet,
@@ -17,24 +18,26 @@ export default function Button({
   colorVariant,
   variant,
   size,
+  ...props
 }: ButtonProps) {
   const theme = useTheme();
   return (
     <ButtonBase
       styleSheet={{
-        alignSelf: 'flex-start',
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignSelf: "flex-start",
+        alignItems: "center",
+        justifyContent: "center",
         // [Color + Variant]
         ...colorVariantBy(theme, colorVariant, variant),
         // [Size]
         ...buttonSize[size],
         // [FullWidth]
         ...(fullWidth && {
-          alignSelf: 'initial',
+          alignSelf: "initial",
         }),
         ...styleSheet,
       }}
+      {...props}
     >
       {children}
     </ButtonBase>
@@ -43,9 +46,9 @@ export default function Button({
 
 Button.defaultProps = {
   fullWidth: false,
-  size: 'md',
-  variant: 'contained',
-  colorVariant: 'primary',
-}
+  size: "md",
+  variant: "contained",
+  colorVariant: "primary",
+};
 
 Button.Base = ButtonBase;

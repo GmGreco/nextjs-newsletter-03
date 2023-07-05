@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import Box from "@src/components/Box/Box";
 import Text from "@src/components/Text/Text";
 import Icon from "@src/components/Icon/Icon";
@@ -19,17 +19,17 @@ export default function Feed({ children }) {
     <Box
       styleSheet={{
         backgroundColor: theme.colors.neutral.x000,
-        marginTop: '-228px',
-        width: '100%',
-        maxWidth: '683px',
-        borderRadius: '8px',
-        paddingTop: '40px',
-        paddingHorizontal: '32px',
+        marginTop: "-228px",
+        width: "100%",
+        maxWidth: "683px",
+        borderRadius: "8px",
+        paddingTop: "40px",
+        paddingHorizontal: "32px",
       }}
     >
       {children}
     </Box>
-  )
+  );
 }
 
 Feed.Header = () => {
@@ -41,23 +41,23 @@ Feed.Header = () => {
     <Box
       styleSheet={{
         borderBottom: `1px solid ${theme.colors.neutral.x200}`,
-        paddingBottom: '24px',
-        marginBottom: '24px',
+        paddingBottom: "24px",
+        marginBottom: "24px",
       }}
     >
       <Box
         styleSheet={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          gap: '16px',
-          marginBottom: '16px'
+          flexDirection: "row",
+          justifyContent: "space-between",
+          gap: "16px",
+          marginBottom: "16px",
         }}
       >
         <Image
           styleSheet={{
-            width: { xs: '100px', md: '128px' },
-            height: { xs: '100px', md: '128px' },
-            borderRadius: '100%',
+            width: { xs: "100px", md: "128px" },
+            height: { xs: "100px", md: "128px" },
+            borderRadius: "100%",
           }}
           src={templateConfig?.personal?.avatar}
           alt="Imagem de perfil do Mario Souto"
@@ -65,16 +65,41 @@ Feed.Header = () => {
 
         <Box
           styleSheet={{
-            justifyContent: 'space-between',
+            justifyContent: "space-between",
           }}
         >
-          <Box styleSheet={{ flex: 1, justifyContent: 'space-between', display: { xs: 'none', md: 'flex' } }}>
-            <Button fullWidth colorVariant="primary" size="xl" href="/">Newsletter</Button>
-            <Button fullWidth colorVariant="neutral" size="xl" href="/">Buy me a coffee</Button>
+          <Box
+            styleSheet={{
+              flex: 1,
+              justifyContent: "space-between",
+              display: { xs: "none", md: "flex" },
+            }}
+          >
+            <Button
+              fullWidth
+              colorVariant="primary"
+              size="xl"
+              href="/newsletter"
+            >
+              Newsletter
+            </Button>
+            <Button fullWidth colorVariant="neutral" size="xl" href="/">
+              Buy me a coffee
+            </Button>
           </Box>
-          <Box styleSheet={{ flex: 1, justifyContent: 'space-between', display: { xs: 'flex', md: 'none' } }}>
-            <Button fullWidth colorVariant="primary" size="xs" href="/">Newsletter</Button>
-            <Button fullWidth colorVariant="neutral" size="xs" href="/">Buy me a coffee</Button>
+          <Box
+            styleSheet={{
+              flex: 1,
+              justifyContent: "space-between",
+              display: { xs: "flex", md: "none" },
+            }}
+          >
+            <Button fullWidth colorVariant="primary" size="xs" href="/">
+              Newsletter
+            </Button>
+            <Button fullWidth colorVariant="neutral" size="xs" href="/">
+              Buy me a coffee
+            </Button>
           </Box>
         </Box>
       </Box>
@@ -94,7 +119,7 @@ Feed.Header = () => {
         >
           <Icon name="github" /> 
         </Link> */}
-        {Object.keys(templateConfig.personal.socialNetworks).map(key => {
+        {Object.keys(templateConfig.personal.socialNetworks).map((key) => {
           const socialNetwork = templateConfig.personal.socialNetworks[key];
           if (socialNetwork) {
             return (
@@ -105,7 +130,7 @@ Feed.Header = () => {
               >
                 <Icon name={key as any} />
               </Link>
-            )
+            );
           }
           return null;
         })}
@@ -118,8 +143,8 @@ Feed.Header = () => {
       <Icon name="instagram" />
       <Icon name="github" /> */}
     </Box>
-  )
-}
+  );
+};
 
 interface FeedPostsProps {
   posts: Post[];
@@ -142,8 +167,8 @@ Feed.Posts = ({ posts }: FeedPostsProps) => {
             url={url}
             image={image}
           />
-        )
+        );
       })}
     </Box>
-  )
-}
+  );
+};
